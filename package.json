@@ -1,0 +1,22 @@
+{
+    "name": "naplink-docs",
+    "version": "1.0.0",
+    "description": "NapLink SDK 文档网站",
+    "type": "module",
+    "scripts": {
+        "dev": "vitepress dev docs",
+        "build": "vitepress build docs",
+        "preview": "vitepress preview docs"
+    },
+    "devDependencies": {
+        "vitepress": "^1.0.0",
+        "vue": "^3.4.0"
+    },
+    "keywords": [
+        "naplink",
+        "napcat",
+        "onebot",
+        "documentation"
+    ],
+    "license": "MIT"
+}
