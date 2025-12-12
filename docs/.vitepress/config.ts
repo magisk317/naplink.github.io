@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
     title: 'NapLink',
     description: '现代化的 NapCat WebSocket 客户端 SDK',
-    base: '/naplink.github.io/',
+    base: '/',  // 组织主页使用根路径
 
     themeConfig: {
         logo: '/logo.svg',
@@ -11,7 +11,7 @@ export default defineConfig({
         nav: [
             { text: '指南', link: '/guide/index' },
             { text: 'API', link: '/api/index' },
-            { text: 'GitHub', link: 'https://github.com/magisk317/naplink' }
+            { text: 'GitHub', link: 'https://github.com/naplink/naplink' }
         ],
 
         sidebar: {
@@ -56,7 +56,7 @@ export default defineConfig({
         },
 
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/magisk317/naplink' }
+            { icon: 'github', link: 'https://github.com/naplink/naplink' }
         ],
 
         footer: {
