@@ -232,6 +232,18 @@ client.on('notice.notify.poke', (data) => {
 });
 ```
 
+### notice.notify.gray_tip
+
+群组灰条提示（如有群成员被封禁等系统提示）。
+
+```typescript
+client.on('notice.notify.gray_tip', (data) => {
+  console.log(`群 ${data.group_id} 灰条: ${data.content}`);
+  console.log('业务ID:', data.busi_id);
+  console.log('相关消息ID:', data.message_id);
+});
+```
+
 ## 请求事件
 
 ### request.friend

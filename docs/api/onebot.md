@@ -417,8 +417,8 @@ Array<{
 上传文件到群/私聊，支持本地路径、`Buffer`/`Uint8Array` 或可读流。
 
 **方法**:
-- `client.uploadGroupFile(groupId, file, name)`
-- `client.uploadPrivateFile(userId, file, name)`
+- `client.uploadGroupFile(groupId, file, name, folder?, uploadFile?)`
+- `client.uploadPrivateFile(userId, file, name, uploadFile?)`
 
 **参数**:
 - `file` 支持本地路径
@@ -479,7 +479,7 @@ NapCat 在 OneBot 11 之外提供了大量扩展 action，NapLink 已封装常�
 - RKey：`getRkey()` / `getRkeyServer()` / `getRkeyEx()`
 - 好友：`setFriendRemark()` / `deleteFriend()` / `getUnidirectionalFriendList()`
 - 群：`setGroupRemark()` / `getGroupInfoEx()` / `getGroupDetailInfo()` / `getGroupIgnoredNotifies()` / `getGroupShutList()`
-- 表情：`setMsgEmojiLike()` / `fetchEmojiLike()` / `fetchCustomFace()`
+- 表情：`setMsgEmojiLike()` / `getEmojiLikes()` / `fetchEmojiLike()` / `fetchCustomFace()`
 
 ## 全量 action 直通（raw）
 

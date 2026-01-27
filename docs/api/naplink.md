@@ -554,17 +554,31 @@ const file = await client.getFile('file_id');
 await client.hydrateMessage(messageSegments);
 ```
 
-### uploadGroupFile(groupId, file, name)
+### uploadGroupFile(groupId, file, name, folder?, uploadFile?)
 
 上传文件到群，支持本地路径、`Buffer`/`Uint8Array` 或可读流。
 
+**参数**：
+- `groupId` - `number | string` 群号
+- `file` - `string | Buffer | Stream` 文件
+- `name` - `string` 文件名
+- `folder` - `string` 文件夹ID（可选）
+- `uploadFile` - `boolean` 是否上传文件（可选，默认 true）
+
 ```typescript
 await client.uploadGroupFile('123456', '/tmp/demo.txt', 'demo.txt');
+await client.uploadGroupFile('123456', '/tmp/demo.txt', 'demo.txt', undefined, false); // 仅发送不上传
 ```
 
-### uploadPrivateFile(userId, file, name)
+### uploadPrivateFile(userId, file, name, uploadFile?)
 
 上传文件到私聊，支持本地路径、`Buffer`/`Uint8Array` 或可读流。
+
+**参数**：
+- `userId` - `number | string` 用户QQ号
+- `file` - `string | Buffer | Stream` 文件
+- `name` - `string` 文件名
+- `uploadFile` - `boolean` 是否上传文件（可选，默认 true）
 
 ```typescript
 await client.uploadPrivateFile('654321', '/tmp/demo.txt', 'demo.txt');
@@ -699,6 +713,52 @@ await client.getGroupIgnoredNotifies();
 await client.getGroupShutList('group_id');
 
 await client.fetchCustomFace({ count: 20 });
+```
+
+### getEmojiLikes(params)
+
+获取表情回应列表（NapCat 扩展）。
+
+**参数**：
+```typescript
+{
+  message_id: string;
+  emoji_id: string;
+  count?: number; // 默认 20
+}
+```
+
+**返回**: `Promise&lt;EmojiLikeResult&gt;`
+
+```typescript
+const likes = await client.getEmojiLikes({
+  message_id: 'msg_id',
+  emoji_id: '123',
+});
+```
+
+### fetchEmojiLike(params)
+
+获取表情回应详情（支持翻页）（NapCat 扩展）。
+
+**参数**：
+```typescript
+{
+  message_id: string;
+  emojiId: string;
+  emojiType: string;
+  count?: number;
+  cookie?: string; // 分页 Cookie
+}
+```
+
+```typescript
+await client.fetchEmojiLike({
+  message_id: 'msg_id',
+  emojiId: '123',
+  emojiType: '1',
+  cookie: 'prev_cookie',
+});
 ```
 
 ## 全量 action 直通：api.raw
